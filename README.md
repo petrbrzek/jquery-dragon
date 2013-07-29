@@ -1,6 +1,6 @@
 jquery.dragon.js 
 =============
-ver: 0.1  
+ver: 0.2  
 licence: MIT  
 Desc: Sidebar, two containers and pullbar
 
