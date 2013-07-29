@@ -52,7 +52,7 @@
     }
 
     Dragon.prototype.offsetTop = function (el) {
-        return el.offset().top;
+        return el.offset().top - this.$window.scrollTop();
     };
 
     Dragon.prototype.off = function (ev) {
