@@ -29,15 +29,31 @@
         bottom: 0;
         background: blue;
     }
+    .test {
+      width: 500px;
+      background: pink;
+      height: 1200px;
+    }
+    #offcanvas {
+      position: fixed;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 300px;
+    }
     </style>
   </head>
   <body>
-    <div id="containerTop"></div>
-    <div id="pullbar"></div>
-    <div id="containerBottom"></div>
+    <div class="test"></div>
+  
+    <div id="offcanvas">
+      <div id="containerTop"></div>
+      <div id="pullbar"></div>
+      <div id="containerBottom"></div>
+    </div>
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-    <script src="dragon.js"></script>
+    <script src="../dragon.js"></script>
 
     <script>
       $(function () {

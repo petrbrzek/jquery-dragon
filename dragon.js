@@ -1,5 +1,5 @@
 // jquery.dragon.js
-// ver. 0.1
+// ver. 0.2
 // Petr Brzek
 
 
@@ -28,19 +28,21 @@
         this.elementPos = 0;
         this.mouseElPos = 0;
         this.$doc = $(document);
-        this.docH = this.$doc.height();
+        this.$window = $(window);
+        this.docH = this.$window.height();
 
         defaults = {
             limitTop : 0,
-            limitBottom : this.docH - this.$element.height()
+            limitBottom : this.docH - this.elementH
         };
 
         this.options = $.extend( {}, defaults, options );
         this.containerTop = this.options.containerTop;
         this.containerBottom = this.options.containerBottom;
         this.limitTop = parseInt(this.options.limitTop, 10);
+
         if (options.limitBottom !== undefined) {
-            this.limitBottom = parseInt(this.docH - this.$element.height() - this.options.limitBottom, 10);
+            this.limitBottom = parseInt(this.docH - this.elementH - this.options.limitBottom, 10);
         }
         else {
             this.limitBottom = parseInt(this.options.limitBottom, 10);
@@ -52,7 +54,7 @@
     }
 
     Dragon.prototype.offsetTop = function (el) {
-        return el.offset().top;
+        return el.offset().top - this.$window.scrollTop();
     };
 
     Dragon.prototype.off = function (ev) {
@@ -82,8 +84,8 @@
             });
 
             $(window).on('resize', function () {
-                self.docH = self.$doc.height();
-                self.limitBottom = parseInt(self.docH - self.$element.height() - self.options.limitBottom, 10);
+                self.docH = self.$window.height();
+                self.limitBottom = parseInt(self.docH - self.elementH, 10);
             });
 
         });
